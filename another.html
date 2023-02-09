@@ -1,0 +1,328 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center mb-3">Weekly Timesheet Calculator</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Break Duration (in minutes)</th>
+            <th>Total Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>
+              <input
+                type="time"
+                id="startTimeMonday"
+                defaultValue="09:00"
+              />
+            </td>
+            <td>
+              <input
+                type="time"
+                id="endTimeMonday"
+                defaultValue="17:00"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                id="breakDurationMonday"
+                defaultValue="60"
+              />
+            </td>
+            <td>
+              <input type="text" id="totalHoursMonday" disabled />
+            </td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>
+              <input
+                type="time"
+                id="startTimeTuesday"
+                defaultValue="09:00"
+              />
+            </td>
+            <td>
+              <input
+                type="time"
+                id="endTimeTuesday"
+                defaultValue="17:00"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                id="breakDurationTuesday"
+                defaultValue="60"
+              />
+            </td>
+            <td>
+              <input type="text" id="totalHoursTuesday" disabled />
+            </td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>
+              <input
+                type="time"
+                id="startTimeWednesday"
+                defaultValue="09:00"
+              />
+            </td>
+            <td>
+              <input
+                type="time"
+                id="endTimeWednesday"
+                defaultValue="17:00"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                id="breakDurationWednesday"
+                defaultValue="60"
+              />
+            </td>
+            <td>
+              <input type="text" id="totalHoursWednesday" disabled />
+            </td>
+          </tr>
+          <tr>
+                <td>Thursday</td>
+                <td>
+                  <input
+                    type="time"
+                    id="startTimeThursday"
+                    defaultValue="09:00"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="time"
+                    id="endTimeThursday"
+                    defaultValue="17:00"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    id="breakDurationThursday"
+                    defaultValue="60"
+                  />
+                </td>
+                <td>
+                  <input type="text" id="totalHoursThursday" disabled />
+                </td>
+              </tr>
+              <tr>
+                    <td>Friday</td>
+                    <td>
+                      <input
+                        type="time"
+                        id="startTimeFriday"
+                        defaultValue="09:00"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="time"
+                        id="endTimeFriday"
+                        defaultValue="17:00"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        id="breakDurationFriday"
+                        defaultValue="60"
+                      />
+                    </td>
+                    <td>
+                      <input type="text" id="totalHoursFriday" disabled />
+                    </td>
+                  </tr>
+                  <tr>
+                        <td>Saturday</td>
+                        <td>
+                          <input
+                            type="time"
+                            id="startTimeSaturday"
+                            defaultValue="09:00"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="time"
+                            id="endTimeSaturday"
+                            defaultValue="17:00"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            id="breakDurationSaturday"
+                            defaultValue="60"
+                          />
+                        </td>
+                        <td>
+                          <input type="text" id="totalHoursSaturday" disabled />
+                        </td>
+                      </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>
+                              <input
+                                type="time"
+                                id="startTimeSunday"
+                                defaultValue="09:00"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="time"
+                                id="endTimeSunday"
+                                defaultValue="17:00"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                id="breakDurationSunday"
+                                defaultValue="60"
+                              />
+                            </td>
+                            <td>
+                              <input type="text" id="totalHoursSunday" disabled />
+                            </td>
+                          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-primary" id="calculateWeeklyTotal">
+          Calculate Weekly Total
+        </button>
+      </div>
+      <br />
+      <div class="text-center">
+        <h3 id="weeklyTotal">Total Hours Worked in the Week:</h3>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const calculateWeeklyTotal = document.getElementById("calculateWeeklyTotal");
+  const weeklyTotal = document.getElementById("weeklyTotal");
+
+  calculateWeeklyTotal.addEventListener("click", function() {
+    const startTimeMonday = document.getElementById("startTimeMonday").value;
+    const endTimeMonday = document.getElementById("endTimeMonday").value;
+    const breakDurationMonday = document.getElementById("breakDurationMonday")
+      .value;
+    const totalHoursMonday = document.getElementById("totalHoursMonday");
+
+    const startTimeTuesday = document.getElementById("startTimeTuesday").value;
+    const endTimeTuesday = document.getElementById("endTimeTuesday").value;
+    const breakDurationTuesday = document.getElementById("breakDurationTuesday")
+      .value;
+    const totalHoursTuesday = document.getElementById("totalHoursTuesday");
+
+    const startTimeWednesday = document.getElementById("startTimeWednesday").value;
+    const endTimeWednesday = document.getElementById("endTimeWednesday").value;
+    const breakDurationWednesday = document.getElementById("breakDurationWednesday")
+      .value;
+    const totalHoursWednesday = document.getElementById("totalHoursWednesday");
+
+    const startTimeThursday = document.getElementById("startTimeThursday").value;
+    const endTimeThursday = document.getElementById("endTimeThursday").value;
+    const breakDurationThursday = document.getElementById("breakDurationThursday")
+      .value;
+    const totalHoursThursday = document.getElementById("totalHoursThursday");
+
+    const startTimeFriday = document.getElementById("startTimeFriday").value;
+    const endTimeFriday = document.getElementById("endTimeFriday").value;
+    const breakDurationFriday = document.getElementById("breakDurationFriday")
+      .value;
+    const totalHoursFriday = document.getElementById("totalHoursFriday");
+
+    const startTimeSaturday = document.getElementById("startTimeSaturday").value;
+    const endTimeSaturday = document.getElementById("endTimeSaturday").value;
+    const breakDurationSaturday = document.getElementById("breakDurationSaturday")
+      .value;
+    const totalHoursSaturday = document.getElementById("totalHoursSaturday");
+
+    const startTimeSunday = document.getElementById("startTimeSunday").value;
+    const endTimeSunday = document.getElementById("endTimeSunday").value;
+    const breakDurationSunday = document.getElementById("breakDurationSunday")
+      .value;
+    const totalHoursSunday = document.getElementById("totalHoursSunday");
+
+    const totalHoursInMinutesMonday =
+      (new Date("1970-01-01 " + endTimeMonday) -
+        new Date("1970-01-01 " + startTimeMonday)) /
+      60000 -
+      breakDurationMonday;
+    totalHoursMonday.value = totalHoursInMinutesMonday / 60;
+
+    const totalHoursInMinutesTuesday =
+      (new Date("1970-01-01 " + endTimeTuesday) -
+        new Date("1970-01-01 " + startTimeTuesday)) /
+      60000 -
+      breakDurationTuesday;
+    totalHoursTuesday.value = totalHoursInMinutesTuesday / 60;
+
+    const totalHoursInMinutesWednesday =
+      (new Date("1970-01-01 " + endTimeWednesday) -
+        new Date("1970-01-01 " + startTimeWednesday)) /
+      60000 -
+      breakDurationWednesday;
+    totalHoursWednesday.value = totalHoursInMinutesWednesday / 60;
+
+    const totalHoursInMinutesThursday =
+      (new Date("1970-01-01 " + endTimeThursday) -
+        new Date("1970-01-01 " + startTimeThursday)) /
+      60000 -
+      breakDurationThursday;
+    totalHoursThursday.value = totalHoursInMinutesThursday / 60;
+
+    const totalHoursInMinutesFriday =
+      (new Date("1970-01-01 " + endTimeFriday) -
+        new Date("1970-01-01 " + startTimeFriday)) /
+      60000 -
+      breakDurationFriday;
+    totalHoursFriday.value = totalHoursInMinutesFriday / 60;
+
+    const totalHoursInMinutesSaturday =
+      (new Date("1970-01-01 " + endTimeSaturday) -
+        new Date("1970-01-01 " + startTimeSaturday)) /
+      60000 -
+      breakDurationSaturday;
+    totalHoursSaturday.value = totalHoursInMinutesSaturday / 60;
+
+    const totalHoursInMinutesSunday =
+      (new Date("1970-01-01 " + endTimeSunday) -
+        new Date("1970-01-01 " + startTimeSunday)) /
+      60000 -
+      breakDurationSunday;
+    totalHoursSunday.value = totalHoursInMinutesSunday / 60;
+
+    weeklyTotal.innerHTML =
+      "Total Hours Worked in the Week: " +
+      (totalHoursInMinutesMonday + totalHoursInMinutesTuesday + totalHoursInMinutesWednesday + totalHoursInMinutesThursday + totalHoursInMinutesFriday + totalHoursInMinutesSaturday + totalHoursInMinutesSunday) / 60;
+  });
+});
+
+  </script>
+</html>
